@@ -1,5 +1,5 @@
 from typing import List
-
+from collections import deque
 
 """
 This is an example based on a problem on leetcode
@@ -64,6 +64,3 @@ class Solution:
                 if not pre_req[nei]:
                     q.append(nei)
         return res
-
-        
-        
