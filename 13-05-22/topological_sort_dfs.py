@@ -37,9 +37,33 @@ class Solution:
             for nei in graph[curr]:
                 self.__dfs(graph, done, nei)
         
-        
-        
-        
-        
+"""
+Course schedule 1
+Here we use kahn's algorithm to determine 
+order at which we should take courses to satisfy pre reqs
+"""
+class Solution:
+    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
+        graph = {i: [] for i in range(numCourses)}
+        pre_req = {i: 0 for i in range(numCourses)}
+        for s, d in prerequisites:
+            graph[d].append(s)
+            pre_req[s] += 1
+        q = deque()
+        res = []
+        # print(graph)
+        # print(pre_req)
+        for i in range(numCourses):
+            if not pre_req[i]:
+                q.append(i)
+        while q:
+            curr = q.popleft()
+            res.append(curr)
+            for nei in graph[curr]:
+                pre_req[nei] -= 1
+                if not pre_req[nei]:
+                    q.append(nei)
+        return res
+
         
         
