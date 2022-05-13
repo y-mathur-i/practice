@@ -7,6 +7,7 @@ validate if the graph is a binary tree
         - no cycle(back edge) (as a directed graph don't need to check for parent)
         - dfs covers all the nodes
 """
+from typing import List
 
 class Solution:
     def validateBinaryTreeNodes(self, n: int, leftChild: List[int], rightChild: List[int]) -> bool:
